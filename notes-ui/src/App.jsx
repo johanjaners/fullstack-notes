@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_BASE = "http://localhost:5012/api/notes"; // adjust port if needed
+const API_BASE = "http://localhost:3000/api/notes"; // adjust port if needed
 
 function App() {
   const [notes, setNotes] = useState([]);

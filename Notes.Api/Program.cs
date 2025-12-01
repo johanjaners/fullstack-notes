@@ -40,4 +40,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.Urls.Add("http://localhost:3000");
+
 app.Run();
