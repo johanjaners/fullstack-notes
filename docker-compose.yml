@@ -1,0 +1,9 @@
+services:
+  sql-server:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    container_name: sql-server
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Password_1!"
+      ACCEPT_EULA: "Y"
