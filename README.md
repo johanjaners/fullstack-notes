@@ -21,7 +21,7 @@ cd Notes.Api
 dotnet run
 ```
 
-API will be available at `http://localhost:5012`.
+API will be available at `http://localhost:3000`.
 
 ### 3. Run frontend
 
