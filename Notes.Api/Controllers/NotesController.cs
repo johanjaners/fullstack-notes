@@ -26,5 +26,13 @@ namespace Notes.Api.Controllers
             return Ok(notes);
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Note>> GetById(int id)
+        {
+            var note = await _context.Notes.FindAsync(id);
+            if (note == null) return NotFound();
+            return Ok(note);
+        }
+
     }
 }
