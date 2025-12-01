@@ -36,9 +36,20 @@ function App() {
     setContent("");
   };
 
+  // DELETE note
+  const handleDelete = async (id) => {
+    const response = await fetch(`${API_BASE}/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok || response.status === 204) {
+      setNotes((prev) => prev.filter((n) => n.id !== id));
+    }
+  };
+
   return (
-    <div style={{ maxWidth: 600, margin: "2rem auto", fontFamily: "sans-serif" }}>
-      <h1>Notes</h1>
+    <div style={{ maxWidth: 600, margin: "2rem auto", fontFamily: "sans-serif", paddingLeft: "2rem" }}>
+      <h1>My Notes</h1>
 
       <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
         <div>
@@ -68,6 +79,7 @@ function App() {
           <li key={n.id} style={{ border: "1px solid #ccc", padding: "0.75rem", marginBottom: "0.5rem" }}>
             <strong>{n.title}</strong>
             <div>{n.content}</div>
+            <button onClick={() => handleDelete(n.id)}>Delete</button>
           </li>
         ))}
       </ul>
