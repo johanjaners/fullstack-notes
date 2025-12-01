@@ -34,5 +34,27 @@ namespace Notes.Api.Controllers
             return Ok(note);
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult<Note>> Create([FromBody] CreateNoteDto dto)
+        {
+            var note = new Note
+            {
+                Title = dto.Title,
+                Content = dto.Content,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.Notes.Add(note);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = note.Id }, note);
+        }
+
+        public class CreateNoteDto
+        {
+            public string Title { get; set; } = string.Empty;
+            public string Content { get; set; } = string.Empty;
+        }
     }
 }
