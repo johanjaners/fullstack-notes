@@ -56,5 +56,16 @@ namespace Notes.Api.Controllers
             public string Title { get; set; } = string.Empty;
             public string Content { get; set; } = string.Empty;
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteNote(int id)
+        {
+            var note = await _context.Notes.FindAsync(id);
+            if (note == null) return NotFound();
+
+            _context.Notes.Remove(note);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
