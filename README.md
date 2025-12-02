@@ -1,6 +1,10 @@
 # Fullstack Notes
 
-Small fullstack notes app built in a few hours.
+A simple fullstack notes application demonstrating:
+
+-   .NET 9 Web API + EF Core
+-   SQL Server in Docker with migrations
+-   React + Vite frontend
 
 -   **Backend**: .NET 9 Web API, EF Core, SQL Server in Docker
 -   **Frontend**: React + Vite
